@@ -1,17 +1,20 @@
-# Getting Started
+This project demonstrates the creation of a CI/CD pipeline for a Spring Boot application using GitHub Actions for continuous integration and Docker Hub for containerization and deployment.
 
-### Reference Documentation
-For further reference, please consider the following sections:
+Features :
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.0.3/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.0.3/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.0.3/reference/htmlsingle/#web)
+Automated Builds: Every push to the main branch triggers the pipeline.
+Unit Testing: Executes unit tests to ensure code quality.
+Build and Packaging: Compiles and packages the application using Apache Maven.
+Docker Integration: Builds a Docker image from the application and pushes it to Docker Hub.
 
-### Guides
-The following guides illustrate how to use some features concretely:
+GitHub Actions Workflow :
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+The GitHub Actions workflow (.github/workflows/ci-cd.yml) is configured to perform the following steps:
 
+Checkout Code: Fetches the latest code from the repository.
+Setup JDK: Configures JDK 17 using Corretto distribution.
+Unit Tests: Runs the unit tests with Maven.
+Build the Application: Cleans and packages the application.
+Build Docker Image: Builds a Docker image from the application.
+Login to Docker Hub: Authenticates to Docker Hub using secrets stored in GitHub.
+Push to Docker Hub: Pushes the Docker image to Docker Hub.
